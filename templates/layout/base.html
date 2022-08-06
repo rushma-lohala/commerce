@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+  </head>
+
+  <body>
+    {% include "includes/navigationbar.html" %}
+    <div class="container">
+    {% if messages %}     
+        {% for message in messages %}
+        <div {% if message.tags %} class="bg-{{ message.tags }} rounded-2 my-2"{% endif %}>
+          <h4 class="p-1">{{ message }}</h4>
+        </div>
+        {% endfor %}
+    {% endif %}
+      {% block content %}{% endblock %}
+    </div>
+    {% include "includes/footer.html" %}
+  </body>
+</html>

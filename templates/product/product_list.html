@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+{% block title %}
+PRODUCT LIST
+      {% endblock %}
+{% block content %}
+<table border="1">
+  <tr>
+    <th>SN</th>
+    <th>product name</th>
+    <th>price</th>
+    <th>product type</th>
+    <th>active</th>
+    <th>category</th>
+  </tr>
+  {% for product in products %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td><a href="{% url 'product-detail' product.slug %}">{{ product.name }}</a></td>
+    <td>{{ product.price }}</td>
+    <td>{{product.product_type}}</td>
+    <td>{{product.is_active}}</td>
+    <td>{{product.category}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock content %}

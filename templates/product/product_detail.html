@@ -1,0 +1,10 @@
+{% extends 'layout/base.html' %}
+{% block title %}
+{{product.name}}
+{% endblock  %}
+{% block content %}
+<strong>name:</strong> {{product.name}}<br/>
+<strong>price:</strong> $ {{product.price}}<br/>
+<strong>product type:</strong> {{product.product_type}}<br/>
+<strong>category:</strong> {{product.category}}<br/>
+{% endblock content %}

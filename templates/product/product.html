@@ -1,0 +1,52 @@
+{% for message in messages %} {{message}} {% endfor%}
+<form action="" method="post">
+  {% comment %} {% if errors %} {% for error in errors.values %} {{error}} {%
+  endfor%} {%endif%} {%csrf_token %} {%csrf_token %} {% endcomment %}
+  {%csrf_token %}
+
+  <label>name:</label><br />
+  <input type="text" id="name" name="name" placeholder="enter name" />
+  {{errors.name}}
+  <br />
+  <br />
+  <label>price:</label><br />
+  <input type="number" name="price" placeholder="price" />
+  {{errors.price}}
+  <br />
+  <br />
+  <label>product_type:</label>
+  <select style="width: 300px" name="product_type">
+    {% for key, value in product_choices %}
+    <option value="{{ key }}">{{ value }}</option>
+    {% endfor %}
+    <option value="one">one</option>
+    <option value="two">two</option>
+  </select>
+  {{errors.type}}
+  <br />
+  <br/
+
+  <label>is_active: </label>
+  <input id="is_active" type="checkbox" name="is_active" />
+  <br />
+  <br />
+
+  <label>category:</label>
+  <select style="width: 300px" name="category">
+    {% for categorys in categories %}
+    <option value="{{categorys.id}}">{{ categorys.name }}</option>
+    {% endfor %}
+    <option value="2">one</option>
+    <option value="4">two</option>
+  </select>
+  {{errors.category}}
+  <br /><br />
+  <input type="submit" value="submit" />
+</form>
+
+{% comment %} {% for products in product %}
+<h4>{{ products.name }}</h4>
+<h4>{{ products.price }}</h4>
+<h4>{{ products.product_type}}</h4>
+<h4>{{ products.is_active}}</h4>
+{% endfor %} {% endcomment %}
